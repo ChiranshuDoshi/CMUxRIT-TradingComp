@@ -1,0 +1,29 @@
+package main
+
+import (
+	"context"
+	"log"
+	"time"
+	"volcase/api"
+	"volcase/logic"
+)
+
+func main() {
+	baseURL := ("http://localhost:9999/v1")
+	apiKey := "18WWG30P"
+	if baseURL == "" {
+		log.Fatal("set RIT_BASE_URL")
+	}
+	ctx := context.Background()
+
+	for {
+		caseDetails, err := api.GetCase(ctx, baseURL, apiKey)
+		if err != nil {
+			continue
+		}
+		// log.Println(caseDetails.Tick)
+		logic.VolTrader(ctx, baseURL, apiKey, caseDetails.Tick)
+		time.Sleep(500 * time.Millisecond)
+	}
+
+}
