@@ -141,19 +141,7 @@ go run .
 
 - This repo contains **multiple parallel versions** of strategies; not all files are intended to be run together.
 - Several files contain hardcoded API keys. For safety, move keys to environment variables before publishing broadly.
-- Root-level Go files (`main.go`, `pairs.go`, `PairsG.go`, etc.) appear to be experimental standalone strategies.
+- Root-level Go files (`main.go`, `pairs.go`, `PairsG.go`, etc.) are standalone strategies.
 - Use one module/folder at a time (`arb[1]`, `RITCxCMU_VOLCASE`, etc.) when running Go code.
 
-## Suggested next cleanup steps
 
-1. Centralize configuration (`API_BASE_URL`, `API_KEY`) via env vars.
-2. Add per-module `README.md` files with strategy-specific behavior.
-3. Keep `requirements.txt` updated and standardize one preferred script per case.
-4. Remove or archive duplicate snapshots once final strategy is chosen.
-
----
-Added in this repo:
-- `requirements.txt`
-- `.env.example`
-- `arb[1]/README.md`
-- `RITCxCMU_VOLCASE/README.md`
